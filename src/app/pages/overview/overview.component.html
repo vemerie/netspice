@@ -1,7 +1,6 @@
 <div class="px-32 py-12">
     <p class="mb-24">All users</p>
-    <app-user-item></app-user-item>
-    <app-user-item></app-user-item>
-    <app-user-item></app-user-item>
-
+    <div *ngFor ="let user of users; let i=index">
+    <app-user-item [user] = user></app-user-item>
+    </div>
 </div>

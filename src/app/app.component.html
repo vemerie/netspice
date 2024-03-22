@@ -1,14 +1,14 @@
 <div class="p-24 ">
-  <div class="w-full h-screen rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]	">
+  <div class="w-full  rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]	">
       <nav class="p-6 px-32 flex bg-orange-300 rounded-t-2xl justify-between" >
         <div class="text-white text-2xl">Use Directory</div>
           <div class="flex gap-6">
-              <app-search></app-search>
+              <app-search (search) = search($event)></app-search>
               <app-search></app-search>
           </div>
       </nav>
+      <app-overview [users] = users></app-overview>
 
-      <app-overview></app-overview>
   </div>
 </div>
 

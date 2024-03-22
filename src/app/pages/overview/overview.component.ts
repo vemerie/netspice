@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-overview',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent {
+@Input() users:any;
 
 }

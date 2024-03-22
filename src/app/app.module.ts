@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { UserComponent } from './pages/user/user.component';
 import { ShareModule } from './share/share.module';
+import { SupabaseClient } from '@supabase/supabase-js';
 
 @NgModule({
   declarations: [
