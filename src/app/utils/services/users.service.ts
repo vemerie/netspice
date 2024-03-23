@@ -7,15 +7,10 @@ import {
   SupabaseClient,
   User,
 } from '@supabase/supabase-js'
-import { of } from 'rxjs'
+import { from, Observable, of } from 'rxjs'
 import { environment } from 'src/environments/environment'
 
-export interface Profile {
-  id?: string
-  username: string
-  website: string
-  avatar_url: string
-}
+
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +24,17 @@ export class UsersService {
   }
 
   getUsers(search:string){
-      return search===''
+      return search ===''
         ?this.supabase.from('user').select(`name, userrole, id `)
         :this.supabase.from('user').select(`name, userrole, id `).eq('name', search)
+  }
+
+  getUser(id:any):Observable<any>{
+    return from (this.supabase.from('user').select().eq('id', id))
+  }
+
+  updateUser(user:any):Observable<any>{
+    return from (this.supabase.from('user').update( user )
+    .eq('id', user.id))
   }
 }

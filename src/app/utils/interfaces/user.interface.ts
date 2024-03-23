@@ -2,6 +2,7 @@ export interface User {
     id:string;
     name:string;
     bio:string;
-    versions:number;
+    version:number;
     userrole:string;
+    language:string;
 }

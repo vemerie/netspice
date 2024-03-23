@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UsersService } from 'src/app/utils/services/users.service';
 
 @Component({
   selector: 'app-overview',
@@ -6,6 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent {
-@Input() users:any;
+  public users:any[]=[];
+  
+  constructor(private readonly supabase: UsersService ){
+   this.supabase.getUsers('').then((res:any)=> this.users = res.data);
+  }
 
+  public search(e:any){
+    this.supabase.getUsers(e).then((res:any)=> this.users = res.data);
+  }
 }

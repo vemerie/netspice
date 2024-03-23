@@ -7,8 +7,9 @@
             <p class="font-thin">{{user.userrole}}</p>
         </div>
     </div>
-    <div class="flex items-end justify-center">
-        <p class=" px-8 py-1 rounded-2xl bg-orange-300 text-white ">Edit Data</p>
+    <a [routerLink]="['/edit-user', user.id]">
+    <div class="flex items-end justify-center" >
+        <p class=" px-8 py-1 rounded-2xl bg-orange-300 text-white cursor-pointer">Edit Data</p>
     </div>
-   
+</a>
 </div>

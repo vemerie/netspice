@@ -1,6 +1,19 @@
-<div class="px-32 py-12">
-    <p class="mb-24">All users</p>
-    <div *ngFor ="let user of users; let i=index">
-    <app-user-item [user] = user></app-user-item>
+<div class="p-24 ">
+    <div class="w-full  rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]	">
+        <nav class="p-6 px-32 flex bg-orange-300 rounded-t-2xl justify-between" >
+          <div class="text-white text-2xl">Use Directory</div>
+            <div class="flex gap-6">
+                <app-search (search) = search($event)></app-search>
+                <app-search></app-search>
+                <app-button></app-button>
+            </div>
+        </nav>
+        <div class="px-32 py-12">
+            <p class="mb-24">All users</p>
+            <div *ngFor ="let user of users; let i=index">
+            <app-user-item [user] = user></app-user-item>
+            </div>
+        </div>
     </div>
-</div>
+  </div>
+

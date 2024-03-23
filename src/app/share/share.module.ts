@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { ButtonComponent } from './button/button.component';
-import { InputComponent } from './input/input.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,11 +12,12 @@ import { InputComponent } from './input/input.component';
     SearchComponent,
     UserItemComponent,
     ButtonComponent,
-    InputComponent
   ],
-  exports:[UserItemComponent, SearchComponent],
+  exports:[UserItemComponent, SearchComponent, ButtonComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
+
   ]
 })
 export class ShareModule { }
