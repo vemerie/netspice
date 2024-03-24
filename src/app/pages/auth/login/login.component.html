@@ -1,0 +1,47 @@
+<app-loader *ngIf="loading"></app-loader>
+<div class="p-12 w-full h-screen flex justify-center items-center">
+  <div class="w-full max-w-lg" aria-live="polite">
+    <h1 class="ms-8 mb-2 text-2xl font-bold">Login</h1>
+    <p class="ms-8 mb-4">Sign in to your portal</p>
+    <form
+      [formGroup]="signInForm"
+      (ngSubmit)="onSubmit()"
+      class="bg-white rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <div class="mb-6">
+        <label class="text-gray-700 text-sm font-normal mb-2" for="email"
+          >Email</label
+        >
+        <input
+          id="email"
+          formControlName="email"
+          class="shadow appearance-none border rounded-3xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[45px]"
+          type="email"
+          placeholder="Your email"
+        />
+      </div>
+
+      <div class="mb-6">
+        <label class="text-gray-700 text-sm font-normal mb-2" for="password"
+          >Password</label
+        >
+        <input
+          id="password"
+          formControlName="password"
+          class="shadow appearance-none border rounded-3xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[45px]"
+          type="password"
+          placeholder="Your password"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="flex justify-center align-middle w-full bg-slate-200 hover:bg-slate-300 rounded-2xl border-2 text-black font-bold py-2 px-4 outline focus:outline-none focus:shadow-outline"
+          [disabled]="loading"
+        >
+          {{ loading ? "Loading" : "Sign Up" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

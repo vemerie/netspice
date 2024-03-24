@@ -7,20 +7,17 @@ import { OverviewComponent } from './pages/overview/overview.component';
 import { UserComponent } from './pages/user/user.component';
 import { ShareModule } from './share/share.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ShareModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ShareModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
