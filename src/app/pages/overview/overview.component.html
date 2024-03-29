@@ -1,18 +1,33 @@
-<div class="p-24">
+<div class="p-24 flex justify-center items-center">
   <div class="w-full rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-    <nav class="p-6 px-32 flex bg-orange-400 rounded-t-2xl justify-between">
-      <div class="text-white text-2xl">Use Directory</div>
+    <nav
+      class="p-6 px-32:sm flex-col:sm flex bg-orange-400 rounded-t-2xl justify-between"
+    >
+      <div class="text-white text-2xl">User Directory</div>
       <div class="flex gap-6">
         <app-search (search)="search($event)"></app-search>
-        <app-search></app-search>
+        <!-- A simple example of how the claims can be used to managed what users see base on there roles-->
+        <div *ngIf="claims?.data.userrole === 'ADMIN'">
+          <app-search-dropdown
+            placeholder="Search user and Edit role"
+            (search)="search($event)"
+            (updateAdmin)="updateAdmin($event)"
+            [results]="dropdownResults"
+          ></app-search-dropdown>
+        </div>
       </div>
     </nav>
     <div class="px-32 py-12">
-      <p class="mb-24">All users</p>
+      <p class="mb-24 pb-6 border-b-2 inline-block">All users</p>
+
       <app-loader class="" *ngIf="loading"></app-loader>
       <div *ngFor="let user of users; let i = index">
         <app-user-item [user]="user"></app-user-item>
       </div>
     </div>
   </div>
+</div>
+
+<div class="p-8">
+  <p class="" (click)="logout()">Logout</p>
 </div>

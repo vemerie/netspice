@@ -30,17 +30,28 @@ export class AuthService {
     return this._session;
   }
 
-  authChanges(
+  public authChanges(
     callback: (event: AuthChangeEvent, session: Session | null) => void,
   ) {
     return this.supabase.auth.onAuthStateChange(callback);
   }
 
-  signIn(email: string, password: string) {
+  public signIn(email: string, password: string) {
     return this.supabase.auth.signInWithPassword({ email, password });
   }
 
-  signOut() {
+  public signOut() {
     return this.supabase.auth.signOut();
   }
+
+  // custom claims
+  public getMyClaims = async () => {
+    const { data, error } = await this.supabase.rpc('get_my_claims', {});
+    return { data, error };
+  };
+
+  public isClaimsAdmin = async () => {
+    const { data, error } = await this.supabase.rpc('is_claims_admin', {});
+    return { data, error };
+  };
 }

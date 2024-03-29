@@ -14,8 +14,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'edit-user/:id',
-    component: UserComponent,
+    path: 'user',
+    loadChildren: (): Promise<any> =>
+      import('./pages/user/user.module').then((m) => m.UserModule),
     canActivate: [AuthGuard],
   },
 
